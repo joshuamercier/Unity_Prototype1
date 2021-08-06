@@ -5,22 +5,43 @@ using UnityEngine;
 public class FollowPlayer : MonoBehaviour
 {
     // Class variables
-    public GameObject player;
-    private Vector3 offset = new Vector3(0, 5, -7); 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Transform player;
+    [SerializeField] private Vector3 offsetPos;
+    [SerializeField] private Space offsetPositionSpace = Space.Self;
+    [SerializeField] private bool lookAt = true;
 
-    // Update is called once per frame
+    // Start is called before the first frame update
     private void Update()
     {
-        
+        Refresh();
     }
-    void LateUpdate()
+
+    public void Refresh()
     {
-        // Off set the camera from the player
-        transform.position = player.transform.position + offset;
+        if (player == null)
+        {
+            Debug.LogWarning("Missing target ref !", this);
+            return;
+        }
+
+        // compute position
+        if (offsetPositionSpace == Space.Self)
+        {
+            transform.position = player.TransformPoint(offsetPos);
+        }
+        else
+        {
+            transform.position = player.position + offsetPos;
+        }
+
+        // compute rotation
+        if (lookAt)
+        {
+            transform.LookAt(player);
+        }
+        else
+        {
+            transform.rotation = player.rotation;
+        }
     }
 }

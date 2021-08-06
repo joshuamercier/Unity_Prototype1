@@ -280,7 +280,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727a7c42291da36478534a82d5769912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchKey: 307
+  horsePower: 40000
+  turnSpeed: 45
+  horizontalInput: 0
+  forwardInput: 0
+  switchKey: 47
   inputID: 2
   MainCamera: {fileID: 647415250}
   FirstPersonCamera: {fileID: 831258208}
@@ -1146,8 +1150,6 @@ GameObject:
   m_Component:
   - component: {fileID: 534669905}
   - component: {fileID: 534669904}
-  - component: {fileID: 534669903}
-  - component: {fileID: 534669906}
   - component: {fileID: 534669907}
   m_Layer: 0
   m_Name: P1 Main Camera
@@ -1156,14 +1158,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &534669903
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534669902}
-  m_Enabled: 1
 --- !u!20 &534669904
 Camera:
   m_ObjectHideFlags: 0
@@ -1221,18 +1215,6 @@ Transform:
   m_Father: {fileID: 1162656872}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 25.975, y: 0, z: 0}
---- !u!114 &534669906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534669902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &534669907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1245,7 +1227,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af845a201797bb24c91da2a799d6ca59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1162656867}
+  player: {fileID: 1162656872}
+  offsetPos: {x: 0, y: 4, z: -8}
+  offsetPositionSpace: 1
+  lookAt: 1
 --- !u!1 &562230666 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8780424320546655309, guid: 71782582b9d2cac4cba5251a3b767d13, type: 3}
@@ -1513,7 +1498,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af845a201797bb24c91da2a799d6ca59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 139901388}
+  player: {fileID: 139901394}
+  offsetPos: {x: 0, y: 6, z: -10}
+  offsetPositionSpace: 1
+  lookAt: 1
 --- !u!20 &647415250
 Camera:
   m_ObjectHideFlags: 0
@@ -2529,7 +2517,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 727a7c42291da36478534a82d5769912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  switchKey: 308
+  horsePower: 10000
+  turnSpeed: 45
+  horizontalInput: 0
+  forwardInput: 0
+  switchKey: 99
   inputID: 1
   MainCamera: {fileID: 534669904}
   FirstPersonCamera: {fileID: 607684336}
