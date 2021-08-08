@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float turnSpeed = 45.0f;
     [SerializeField] private float horizontalInput;
     [SerializeField] private float forwardInput;
+    [SerializeField] private GameObject centerOfMass;
+    [SerializeField] private TextMeshProUGUI speedometerText;
+    [SerializeField] private float speed;
+
     
     private Rigidbody playerRb;
 
@@ -21,6 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         // Grab Rigibody component
         playerRb = GetComponent<Rigidbody>();
+        playerRb.centerOfMass = centerOfMass.transform.position;
         // Start with traditional camera enabled
         MainCamera.enabled = true;
         FirstPersonCamera.enabled = false;
@@ -45,6 +51,8 @@ public class PlayerController : MonoBehaviour
         // Move the vehicle based on the horizontal input
         transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput);
 
-
+        // Update the speedometer
+        speed = Mathf.Round(playerRb.velocity.magnitude * 2.237f); // 3.6 for kph
+        speedometerText.SetText("Speed: " + speed + " mph");
     }
 }
